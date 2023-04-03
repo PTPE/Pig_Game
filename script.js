@@ -29,8 +29,8 @@ const init = function () {
   current10El.textContent = 0;
 
   diceEl.classList.add('hidden');
-  player0El.classList.remove('player--winnier');
-  player1El.classList.remove('player--winnier');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
 };
@@ -70,15 +70,14 @@ btnRoll.addEventListener('click', function () {
 
 btnHold.addEventListener('click', function () {
   if (playing) {
-    console.log('hold button');
     // 1. Add current score to active player's score
     scores[activePlayer] += currentScore;
     // score[1] = score[1] + currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
 
-    // 2. Check if player's score is >=100
-    if (scores[activePlayer] >= 100) {
+    // 2. Check if player's score is >=50
+    if (scores[activePlayer] >= 10) {
       // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
